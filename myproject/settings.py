@@ -117,9 +117,31 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# مسیرهایی که جنگو باید دنبال فایل‌های استاتیک بگردد
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# اگر خواستی بعداً collectstatic استفاده کنی (مثلاً برای دیپلوی)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+import os
+
+# مسیر فایل‌های استاتیک (مثل css و js)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # فولدری به اسم static کنار manage.py
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # محل جمع‌آوری برای استقرار
+
+# مسیر فایل‌های مدیا (فایل‌هایی که کاربران آپلود می‌کنند)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
