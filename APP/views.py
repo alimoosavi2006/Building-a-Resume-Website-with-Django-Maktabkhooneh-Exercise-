@@ -4,4 +4,4 @@ from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 #.\venv\Scripts\Activate.ps1
 def home_view(request):
-    return render(request,'index.html')
+    return render(request,'APP/index.html')
